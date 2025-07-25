@@ -9,14 +9,11 @@
     <Authors>DCoats</Authors>
     <Company>Functionairy</Company>
     <Copyright>Copyright © Functionairy 2025</Copyright>
-    <Description>NuGet.Protocol package-based NuGetOperator library.</Description>
+    <Description>Support library for NuGet-related library projects.</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <RepositoryUrl>https://github.com/Functionairy/F10Y.L0022.git</RepositoryUrl>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\F10Y.L0000\source\F10Y.L0000\F10Y.L0000.csproj" />
-    <ProjectReference Include="..\..\..\F10Y.NG0002\source\F10Y.NG0002\F10Y.NG0002.csproj" />
-    <ProjectReference Include="..\F10Y.L0022.L000\F10Y.L0022.L000.csproj" />
+    <ProjectReference Include="..\..\..\F10Y.T0003\source\F10Y.T0003\F10Y.T0003.csproj" />
   </ItemGroup>
 </Project>
