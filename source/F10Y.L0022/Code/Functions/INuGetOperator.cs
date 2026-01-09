@@ -1,13 +1,14 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 using NuGet.Protocol;
 using NuGet.Protocol.Core.Types;
+using NuGet.Versioning;
 
 using F10Y.T0002;
-using System.Collections.Generic;
-using NuGet.Versioning;
-using System.Linq;
+using F10Y.T0011;
 
 
 namespace F10Y.L0022
@@ -16,9 +17,18 @@ namespace F10Y.L0022
     /// NuGet.org operator.
     /// </summary>
     [FunctionsMarker]
-    public partial interface INuGetOperator
+    public partial interface INuGetOperator :
+        L000.INugetOperator
     {
-        public async Task<bool> Exists_Package(
+#pragma warning disable IDE1006 // Naming Styles
+
+        [Ignore]
+        L000.INugetOperator _L000 => L000.NugetOperator.Instance;
+
+#pragma warning restore IDE1006 // Naming Styles
+
+
+        async Task<bool> Exists_Package(
             string packageID,
             PackageSearchResource packageSearchResource,
             bool includePreRelease = IValues.IncludePreRelase_Default_Constant)
@@ -35,7 +45,7 @@ namespace F10Y.L0022
             return output;
         }
 
-        public async Task<bool> Exists_Package(
+        async Task<bool> Exists_Package(
             string packageID,
             SourceRepository sourceRepository,
             bool includePreRelease = IValues.IncludePreRelase_Default_Constant)
@@ -50,7 +60,7 @@ namespace F10Y.L0022
             return output;
         }
 
-        public async Task<bool> Exists_Package(
+        async Task<bool> Exists_Package(
             string packageID,
             string source_CoreV3,
             bool includePreRelease = IValues.IncludePreRelase_Default_Constant)
@@ -65,7 +75,7 @@ namespace F10Y.L0022
             return output;
         }
 
-        public Task<bool> Exists_Package(
+        Task<bool> Exists_Package(
             string packageID,
             bool includePreRelease = IValues.IncludePreRelase_Default_Constant)
             => this.Exists_Package(
@@ -73,7 +83,7 @@ namespace F10Y.L0022
                 Instances.NuGetSources.NuGet_org_CoreV3,
                 includePreRelease);
 
-        public async Task<DateTimeOffset> Get_PublicationTimestamp_Latest(
+        async Task<DateTimeOffset> Get_PublicationTimestamp_Latest(
             string packageID,
             bool includePreRelease = IValues.IncludePreRelase_Default_Constant,
             bool includeUnlisted = IValues.IncludeUnlisted_Default_Constant)
@@ -87,7 +97,7 @@ namespace F10Y.L0022
             return output;
         }
 
-        public async Task<(NuGetVersion Version, DateTimeOffset Publication)> Get_PublicationTimestampAndVersion_Latest(
+        async Task<(NuGetVersion Version, DateTimeOffset Publication)> Get_PublicationTimestampAndVersion_Latest(
             string packageID,
             bool includePreRelease = IValues.IncludePreRelase_Default_Constant,
             bool includeUnlisted = IValues.IncludeUnlisted_Default_Constant)
@@ -105,7 +115,7 @@ namespace F10Y.L0022
             return output;
         }
 
-        public async Task<Dictionary<NuGetVersion, DateTimeOffset>> Get_PublicationTimestamps_ByVersion(
+        async Task<Dictionary<NuGetVersion, DateTimeOffset>> Get_PublicationTimestamps_ByVersion(
             string packageID,
             bool includePreRelease = IValues.IncludePreRelase_Default_Constant,
             bool includeUnlisted = IValues.IncludeUnlisted_Default_Constant) 

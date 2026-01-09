@@ -5,4 +5,5 @@ Disallowed Dependencies:
 - F10Y.NG0002
 
 Allowed Dependencies:
+- F10Y.T0002 - Functions marker.
 - F10Y.T0003 - Values marker.
