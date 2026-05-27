@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-using NuGet.Protocol;
 using NuGet.Protocol.Core.Types;
 using NuGet.Versioning;
 
@@ -16,6 +15,9 @@ namespace F10Y.L0022
     /// <summary>
     /// NuGet.org operator.
     /// </summary>
+    /// <remarks>
+    /// <inheritdoc cref="Documentation.Project_SelfDescription" path="/summary"/>
+    /// </remarks>
     [FunctionsMarker]
     public partial interface INuGetOperator :
         L000.INugetOperator
